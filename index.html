@@ -8,7 +8,7 @@
     <script src="js/leaflet-heat.js"></script>
     <script src="js/seventy_ninety_lyr-min.js"></script>
     <script src="js/ninety_twentyEleven-min.js"></script>
-    <script src="js/twentyEleven_present-min.js"></script>
+    <script src="js/twentyTwelve_twentyFifteen-min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -35,9 +35,9 @@
         };
 
         var overlays= {
-            "1971-1991": seventyOne_ninetyOne_lyr,
-            "1991-2011": ninetyOne_twentyEleven_lyr,
-            "2011-Present": twentyEleven_present_lyr
+            "1971-1991 (41,196 pts)": seventyOne_ninetyOne_lyr,
+            "1991-2011 (53,275 pts)": ninetyOne_twentyEleven_lyr,
+            "2012-2015 (51,789 pts)": twentyTwelve_twentyFifteen_lyr
         };
 
         // initialize map object
@@ -45,7 +45,7 @@
         	center: [40.111688,-97.77832], 
         	zoom: 4,
             zoomControl: false,
-        	layers: [lightBasemap, darkBasemap, seventyOne_ninetyOne_lyr, ninetyOne_twentyEleven_lyr, twentyEleven_present_lyr]
+        	layers: [lightBasemap, darkBasemap, seventyOne_ninetyOne_lyr, ninetyOne_twentyEleven_lyr, twentyTwelve_twentyFifteen_lyr]
         });
 
         // add zoom control, layer controls, and scale bar
