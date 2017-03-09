@@ -9,9 +9,9 @@ body {
 }
 
 .main {
-    padding: 20px;
+    padding: 20px 20px 20px 0;
     padding-bottom: 600px;
-
+    background: rgba(240, 240, 240, 0.3)
 }
 
 .main .page-header {
@@ -31,7 +31,7 @@ body {
         right: 0;
         z-index: 1000;
         display : block;
-        padding: 20px;
+        padding: 20px 20px 20px 0;
         overflow-x: hidden;
         overflow-y: hidden;
         background-color: #f5f5f5;

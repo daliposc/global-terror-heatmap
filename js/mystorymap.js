@@ -5,7 +5,7 @@ darkBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/cj00qqid700
         attribution: 'Mapbox &copy | OpenStreetMaps &copy'
     });
 
-lightBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/ciy3qjp5800012spckvsivlx8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
+satelliteBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/ciugec1dm009f2iruamiched0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
         maxZoom: 10, 
         minZoom: 3, 
         attribution: 'Mapbox &copy | OpenStreetMaps &copy',
@@ -13,7 +13,7 @@ lightBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/ciy3qjp580
 
 // storymap layers
 var layers= {
-    'Light Basemap': [lightBasemap],
+    'Satellite': [satelliteBasemap],
     'Dark Basemap': [darkBasemap],
     '1971': [seventyOne_ninetyOne_lyr],
     '1991': [ninetyOne_twentyEleven_lyr],
@@ -35,11 +35,7 @@ $('.main').storymap({
     createMap: function () {
     var map = L.map('map', {zoomControl: false}).setView([44, -120], 7);
 
-    L.tileLayer(('https://api.mapbox.com/styles/v1/connord/cj00qqid7007i2rpla8qitsgl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
-        maxZoom: 10, 
-        minZoom: 3,
-        attribution: 'Mapbox &copy | OpenStreetMaps &copy'
-    }).addTo(map);
+    darkBasemap.addTo(map);
 
     // heatmap radius change based on zoom levels
     map.on('zoomend', function () {
@@ -48,6 +44,15 @@ $('.main').storymap({
         layers['1991'][0].setOptions({radius: rad});
         layers['2012'][0].setOptions({radius: rad});
     });
+        
+    // scale bar
+    L.control.scale({position: 'bottomright'}).addTo(map);
+        
+    // add mini globe to map
+    var miniMap = new L.Control.GlobeMiniMap({
+        marker:'red',
+        position: 'bottomright'
+    }).addTo(map);
 
     return map;
 }
