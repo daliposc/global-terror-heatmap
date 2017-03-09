@@ -10,23 +10,7 @@
             breakpointPos: '33.333%',
             legend: false,
             createMap: function () {
-                var map = L.map('map', {zoomControl: false}).setView([44, -120], 7);
-                L.tileLayer('', {
-                    maxZoom: 10, 
-                    minZoom: 3,
-                    attribution: '',
-                    id: 'mapbox.light'
-                }).addTo(map);
-                
-                // heatmap radius change based on zoom levels
-                map.on('zoomend', function () {
-                    var rad = 7 + map.getZoom();
-                    layers['1971'][0].setOptions({radius: rad});
-                    layers['1991'][0].setOptions({radius: rad});
-                    layers['2012'][0].setOptions({radius: rad});
-                    console.log("we here tho > zoomstart | radius =" +  rad);
-                });
-                
+                var map = L.map('map', {zoomControl: false}).setView([44, -120], 7);                
                 return map;
             }
         };
