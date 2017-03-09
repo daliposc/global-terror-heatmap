@@ -3,17 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Terror Heatmap</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+
+    <!--stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--leaflet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    
+    <!--jquery & bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!--story map plugin-->
+    <script src="js/storymap.js"></script>
+    
+    <!--globe minimap plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="js/globeminimap.js"></script>
+    
+    <!--leaflet heatmap plugin-->
     <script src="js/leaflet-heat.js"></script>
+    
+    <!--heatmap layers-->
     <script src="js/seventy_ninety_lyr-min.js"></script>
     <script src="js/ninety_twentyEleven-min.js"></script>
     <script src="js/twentyTwelve_twentyFifteen-min.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div id="map"></div>
+    <!--<div class="container-fluid">-->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 main">
+            <h2 class="page-header">Global Terrorist Attacks<br/>
+                <small>From <a href="https://www.start.umd.edu/gtd/">https://www.start.umd.edu/gtd/</a></small></h2>
+            <section data-scene="scene1">
+                <h2>1971-1991</h2>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+            </section>
 
-    <script src="js/storymap.js"></script>
+            <section data-scene="scene2">
+                <h2>1991-2011</h2>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+            </section>
+
+            <section data-scene="scene3">
+                <h2>2011-2015</h2>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+                <p>text</p>
+            </section>
+
+            <div class="glyphicon glyphicon-chevron-down arrow-down"></div>
+        </div>
+
+        <div id="map" class="col-sm-0 col-md-0 sidebar"></div>   
+        
+    </div>
+    <!--</div>-->
+
+    <script src="js/mystorymap.js"></script>
 </body>
 </html>
