@@ -11,11 +11,22 @@
             legend: false,
             createMap: function () {
                 var map = L.map('map', {zoomControl: false}).setView([44, -120], 7);
-                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-                    maxZoom: 18,
+                L.tileLayer('', {
+                    maxZoom: 10, 
+                    minZoom: 3,
                     attribution: '',
                     id: 'mapbox.light'
                 }).addTo(map);
+                
+                // heatmap radius change based on zoom levels
+                map.on('zoomend', function () {
+                    var rad = 7 + map.getZoom();
+                    layers['1971'][0].setOptions({radius: rad});
+                    layers['1991'][0].setOptions({radius: rad});
+                    layers['2012'][0].setOptions({radius: rad});
+                    console.log("we here tho > zoomstart | radius =" +  rad);
+                });
+                
                 return map;
             }
         };
@@ -127,7 +138,6 @@
                                 legendContent += layers[layernames[i]][1];
                             }
                         }
-
                     }
 
                     legendControl.onAdd = function () {
@@ -184,8 +194,8 @@
 
                 // if you don't want to show a marker at the center of the map, you can simply comment the following line.
                 // currentLayerGroup.addLayer(L.marker([scene.lat, scene.lon]));
-
-                map.setView([scene.lat, scene.lng], scene.zoom, 1);
+                
+                map.setView([scene.lat, scene.lng], scene.zoom, 1);              
             }
 
             paragraphs.on('viewing', function () {
