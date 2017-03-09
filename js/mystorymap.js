@@ -36,7 +36,11 @@ var layers= {
 var scenes = {
     scene1: {lat: 30, lng: 28, zoom:4, layers: ['1971','disputedBoundaries']},
     scene2: {lat: 30, lng: 28, zoom:4, layers: ['1991','disputedBoundaries']},
-    scene3: {lat: 30, lng: 28, zoom:4, layers: ['2012','disputedBoundaries']}
+    scene3: {lat: 30, lng: 28, zoom:4, layers: ['2012','disputedBoundaries']},
+    scene4: {lat: 54.2613295, lng: -7.9826538, zoom:8},
+    scene5: {lat: 54.2613295, lng: -7.9826538, zoom:8, layers: ['Satellite','1971']},
+    scene6: {lat: 54.2613295, lng: -7.9826538, zoom:8, layers: ['Satellite','1991']},
+    scene7: {lat: 54.2613295, lng: -7.9826538, zoom:8, layers: ['Satellite','2012']}
 };
 
 // initialize storymap
