@@ -28,12 +28,9 @@ var worlddata = {"type":"Topology","objects":{"land":{"type":"MultiPolygon","arc
 		//layer is the map layer to be shown in the minimap
 		initialize: function (options) {
 			L.Util.setOptions(this, options);
-			console.log(this.options);
 		},
 
 		onAdd: function (map) {
-			console.log('onAdd()');
-
 			this._mainMap = map;
 
 			//Creating the container and stopping events from spilling through to the main map.
@@ -56,7 +53,6 @@ var worlddata = {"type":"Topology","objects":{"land":{"type":"MultiPolygon","arc
 		},
 
 		addTo: function (map) {
-			console.log('addTo()');
 			L.Control.prototype.addTo.call(this, map);
 			this.initCanvas();
 
@@ -102,7 +98,6 @@ var worlddata = {"type":"Topology","objects":{"land":{"type":"MultiPolygon","arc
 		},
 
 		transitionMap: function (p) {
-			console.log('transtionMap');
 			var that = this;
 			var c = that.c;
 			var path = that.path;
@@ -127,7 +122,6 @@ var worlddata = {"type":"Topology","objects":{"land":{"type":"MultiPolygon","arc
 		},
 	
 		_onMainMapMoved: function (e) {
-			console.log('mainmapmoved');
 			if (!this._miniMapMoving) {
 				this._mainMapMoving = true;
 			

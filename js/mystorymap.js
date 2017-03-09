@@ -1,30 +1,42 @@
-// basemap objects
-darkBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/cj00qqid7007i2rpla8qitsgl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
+// map layers
+var darkBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/cj00qqid7007i2rpla8qitsgl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
         maxZoom: 10, 
         minZoom: 3,
         attribution: 'Mapbox &copy | OpenStreetMaps &copy'
     });
 
-satelliteBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/ciugec1dm009f2iruamiched0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
+var satelliteBasemap = L.tileLayer(('https://api.mapbox.com/styles/v1/connord/ciugec1dm009f2iruamiched0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29ubm9yZCIsImEiOiJjaXIya3VjYXgwMDA4ZnBubWMwbGM4aW4yIn0.OmX2i2_gUHm12VynRff6qA'), {
         maxZoom: 10, 
         minZoom: 3, 
         attribution: 'Mapbox &copy | OpenStreetMaps &copy',
     });
 
-// storymap layers
+var disputedBoundaries =  L.geoJson.ajax('../assets/disputed_boundaries.geojson',  {
+        color: '#eee',
+        weight: 5,
+        opacity: 0.9,
+        dashArray: "2 2"
+    });
+
+// legend contents
+var boundaryDisputes_legend = '<i style="background: #eee; opacity: 0.9"></i><p><b>Boundary Disputes</b></p>'
+
+
+// storymap layer group
 var layers= {
     'Satellite': [satelliteBasemap],
     'Dark Basemap': [darkBasemap],
     '1971': [seventyOne_ninetyOne_lyr],
     '1991': [ninetyOne_twentyEleven_lyr],
-    '2012': [twentyTwelve_twentyFifteen_lyr]
+    '2012': [twentyTwelve_twentyFifteen_lyr],
+    'disputedBoundaries': [disputedBoundaries, boundaryDisputes_legend]
 };
 
 // story map scenes
 var scenes = {
-    scene1: {lat: 40.111688, lng: -97.77832, zoom:4, layers: ['1971']},
-    scene2: {lat: 40.111688, lng: -97.77832, zoom:4, layers: ['1991']},
-    scene3: {lat: 40.111688, lng: -97.77832, zoom:4, layers: ['2012']}
+    scene1: {lat: 30, lng: 28, zoom:4, layers: ['1971','disputedBoundaries']},
+    scene2: {lat: 30, lng: 28, zoom:4, layers: ['1991','disputedBoundaries']},
+    scene3: {lat: 30, lng: 28, zoom:4, layers: ['2012','disputedBoundaries']}
 };
 
 // initialize storymap

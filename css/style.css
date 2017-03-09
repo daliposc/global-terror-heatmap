@@ -1,11 +1,15 @@
-
 body {
     margin: 0;
     font-family:  Helvetica, 'Open Sans', sans-serif;
+    color: #000;
 }
 
-.sidebar {
-    /* display: none;*/
+section {
+    padding: 5px 10px 10px 10px;
+    margin: 20px 0 0 20px;
+    border-radius: 10px;
+    background: #ccc;
+    opacity: .3;
 }
 
 .main {
@@ -91,13 +95,6 @@ body {
     height: 3px;
 }
 
-section {
-    padding: 5px 10px 10px 10px;
-    border-radius: 10px;
-    background: #ccc;
-    opacity: 0;
-}
-
 .arrow-down {
     position:fixed;
     top:90%;
@@ -156,4 +153,12 @@ section {
     font-size: 12px;
     line-height: 16px;
     margin: 0;
+}
+
+h2 {
+    color: #f25d4f;
+}
+
+a {
+    color: #91c8d6;
 }
